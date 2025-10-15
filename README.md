@@ -39,3 +39,31 @@ This project is a simple implementation of a blockchain in Python. It uses the F
         }
         ```
 -   **`GET /chain`**: Returns the full blockchain.
+
+## Deployment on Render
+
+This application is ready to be deployed on Render's free tier.
+
+### Automatic Deployment with `render.yaml`
+
+1.  **Fork this repository** to your own GitHub account.
+2.  Go to the [Render Dashboard](https://dashboard.render.com/) and click **New +** > **Blueprint**.
+3.  Connect your GitHub account and select your forked repository.
+4.  Render will automatically detect the `render.yaml` file and configure the service.
+5.  Click **Apply** to deploy the application.
+
+### Manual Deployment
+
+1.  **Fork this repository** to your own GitHub account.
+2.  Go to the [Render Dashboard](https://dashboard.render.com/) and click **New +** > **Web Service**.
+3.  Connect your GitHub account and select your forked repository.
+4.  Configure the service:
+    -   **Name**: `minichain` (or your preferred name)
+    -   **Environment**: `Python 3`
+    -   **Region**: Choose a region close to you.
+    -   **Branch**: `main` (or your default branch)
+    -   **Build Command**: `pip install -r requirements.txt`
+    -   **Start Command**: `gunicorn app:app`
+5.  Click **Create Web Service**.
+
+**Note**: The free tier service will automatically sleep after a period of inactivity. It will wake up on the next request, which may cause a short delay.
