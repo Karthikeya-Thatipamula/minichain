@@ -1,69 +1,73 @@
-# MiniChain - Simple Blockchain Implementation
+# ⛓️ MiniChain - A Simple Blockchain Implementation
 
-This project is a simple implementation of a blockchain in Python. It uses the Flask web framework to expose a REST API and a web interface for interacting with the blockchain.
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Status: Active](https://img.shields.io/badge/status-active-success.svg)
 
-## Features
+A lightweight, educational blockchain built with Python and Flask. This project provides a simple, hands-on introduction to the core concepts of blockchain technology, including mining, transactions, and proof-of-work.
 
--   **Genesis Block Creation**: The first block in the chain is created automatically.
--   **Transaction Pool**: Unconfirmed transactions are stored in a pool.
--   **Proof-of-Work Mining**: A simple Proof-of-Work algorithm is used to mine new blocks.
--   **Chain Validation**: A method is included to validate the integrity of the blockchain.
--   **Data Persistence**: The blockchain is automatically saved to `chain_data.json` and loaded on startup.
--   **REST API**: A simple API allows for adding transactions, mining new blocks, and viewing the chain.
--   **Web Interface**: A user-friendly web interface to interact with the blockchain.
+**[Live Demo](https://minichain-szyk.onrender.com/)**
 
-## Setup and Usage
+---
 
-1.  **Install Dependencies**:
+### ✨ Features
+
+-   **Proof-of-Work (PoW):** Simple PoW algorithm to secure the network.
+-   **Transaction Pool:** Manages unconfirmed transactions before they are mined into a block.
+-   **Chain Validation:** Ensures the integrity and immutability of the blockchain.
+-   **Data Persistence:** Saves the blockchain state to a JSON file (`chain_data.json`) and loads it on startup.
+-   **RESTful API:** A clean API for interacting with the blockchain programmatically.
+-   **Modern Web UI:** A sleek, dark-themed dashboard to visualize the chain, add transactions, and mine new blocks.
+
+### 💻 Tech Stack
+
+-   **Backend:** Python, Flask
+-   **Frontend:** HTML, CSS, JavaScript (jQuery)
+-   **Deployment:** Gunicorn, Render
+
+### 🚀 Getting Started
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/MiniChain.git
+    cd MiniChain
+    ```
+
+2.  **Install dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
-2.  **Run the Application**:
+3.  **Run the application:**
     ```bash
     python app.py
     ```
-    The application will be running on `http://localhost:5000`.
+    The application will be available at `http://localhost:5000`.
 
-## API Endpoints
+### 🔗 API Endpoints
 
--   **`GET /`**: Serves the web interface.
--   **`GET /mine`**: Mines a new block.
--   **`POST /transactions/new`**: Adds a new transaction to the pool.
-    -   **Request Body**:
-        ```json
-        {
-            "sender": "sender_address",
-            "recipient": "recipient_address",
-            "amount": 5
-        }
-        ```
--   **`GET /chain`**: Returns the full blockchain.
+-   `GET /`: Serves the web interface.
+-   `GET /chain`: Returns the entire blockchain.
+-   `GET /mine`: Mines a new block.
+-   `POST /transactions/new`: Adds a new transaction to the pool.
+-   `GET /transactions/pending`: Returns the list of unconfirmed transactions.
 
-## Deployment on Render
+### ☁️ Deployment
 
-This application is ready to be deployed on Render's free tier.
+This project is configured for easy deployment on [Render](https://render.com/) via the provided `render.yaml` file.
 
-### Automatic Deployment with `render.yaml`
+1.  **Fork the repository.**
+2.  On the Render Dashboard, click **New +** > **Blueprint**.
+3.  Connect your GitHub and select the forked repository. Render will automatically configure the deployment.
 
-1.  **Fork this repository** to your own GitHub account.
-2.  Go to the [Render Dashboard](https://dashboard.render.com/) and click **New +** > **Blueprint**.
-3.  Connect your GitHub account and select your forked repository.
-4.  Render will automatically detect the `render.yaml` file and configure the service.
-5.  Click **Apply** to deploy the application.
+### 🤝 Contributors
 
-### Manual Deployment
+-   **Karthikeya Thatipamula** (Lead)
+-   [Shivam Patel](https://github.com/Shivam-Patel-G)
+-   Aryan Sohani
+-   [Shashank Gupta](https://github.com/shashankpc7746)
 
-1.  **Fork this repository** to your own GitHub account.
-2.  Go to the [Render Dashboard](https://dashboard.render.com/) and click **New +** > **Web Service**.
-3.  Connect your GitHub account and select your forked repository.
-4.  Configure the service:
-    -   **Name**: `minichain` (or your preferred name)
-    -   **Environment**: `Python 3`
-    -   **Region**: Choose a region close to you.
-    -   **Branch**: `main` (or your default branch)
-    -   **Build Command**: `pip install -r requirements.txt`
-    -   **Start Command**: `gunicorn app:app`
-5.  Click **Create Web Service**.
+---
 
-**Note**: The free tier service will automatically sleep after a period of inactivity. It will wake up on the next request, which may cause a short delay.
+<p align="center">
+  <em>Made for educational purposes.</em>
+</p>
